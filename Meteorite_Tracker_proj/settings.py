@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Metorite_Tracker.urls'
+ROOT_URLCONF = 'Meteorite_Tracker_proj.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Metorite_Tracker.wsgi.application'
+WSGI_APPLICATION = 'Meteorite_Tracker_proj.wsgi.application'
 
 
 # Database
