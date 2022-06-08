@@ -7,7 +7,7 @@ from django.contrib.auth import (
     authenticate, login as django_login, logout as django_logout)
 from django.contrib import messages
 
-from blog_app.models import BlogPost
+# from blog_app.models import BlogPost
 from .models import CustomUser
 from django.contrib.auth.decorators import login_required
 
@@ -50,9 +50,9 @@ def login(request):
 
 @login_required
 def profile(request):
-    post = BlogPost.objects.filter(user=request.user)
+    # post = BlogPost.objects.filter(user=request.user)
     context = {
-        'posts': post
+        # 'posts': post
     }
     return render(request, 'users/profile.html', context)
 
