@@ -46,5 +46,8 @@ My minimum viable product proposal is to have a user model able to create new pi
 
 ## Schedule
 Week 1 = users_app: models, views(register, login, profile), make pin
+<br/>
 Week 2 = custom management command to build list view, profile list of pins and clickable link to pin
+<br/>
 Week 3 = finish list_view interactions, push to production, create custom pins/shadow
+<br/>
