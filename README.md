@@ -37,7 +37,14 @@
 "As a user I want to be able to view all the meteorites that I have added as pins on a global map at the geographic coordinates where the meteorite landed."
 <br/>
 "As a user I want to be able to click on a pin and view more info via a small pop-up window on the same screen."
+<br/>
+## Minimum viable product
 
-week 1 = users_app: models, views(register, login, profile), make pin
-week 2 = custom management command to build list view, profile list of pins and clickable link to pin
-week 3 = finish list_view interactions, push to production, create custom pins/shadow
+My minimum viable product proposal is to have a user model able to create new pins. The user will be able to register and login to an account. The user will be able to post a pin to the map and view it on the home screen.
+
+<br/>
+
+## Schedule
+Week 1 = users_app: models, views(register, login, profile), make pin
+Week 2 = custom management command to build list view, profile list of pins and clickable link to pin
+Week 3 = finish list_view interactions, push to production, create custom pins/shadow
