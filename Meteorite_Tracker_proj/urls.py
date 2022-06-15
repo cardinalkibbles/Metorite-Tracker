@@ -19,5 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users_app.urls')),
-    # path('', include('cosmic_event_app.urls'))
+    path('', include('cosmic_event_app.urls'))
 ]

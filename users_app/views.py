@@ -49,13 +49,9 @@ def login(request):
 
 @login_required
 def profile(request):
-    return render(request, 'users_app/profile.html')
+    return render(request, 'users/profile.html')
 
 
 def logout(request):
     django_logout(request)
     return render(request, 'users/login.html')
-
-
-def index(request):
-    return render(request, 'users/index.html')

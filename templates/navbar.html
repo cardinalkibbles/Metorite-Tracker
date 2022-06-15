@@ -1,4 +1,4 @@
- {% block content %}
+{% block content %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -16,14 +16,23 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Map</a>
+          <a class="nav-link" href="{% url 'cosmic_event_app:index' %}" }
+            >Map</a
+          >
+        </li>
+
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'users_app:profile' %}">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
+          <a class="nav-link" href="{% url 'users_app:logout' %}">Logout</a>
         </li>
+        {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="{% url 'users_app:login' %}">Login</a>
         </li>
+        {% endif %}
       </ul>
     </div>
   </div>
