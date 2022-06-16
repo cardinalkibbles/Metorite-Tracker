@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
 
     'users_app',
+    'cosmic_event_app',
 ]
 
 MIDDLEWARE = [
