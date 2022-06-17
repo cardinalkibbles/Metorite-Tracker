@@ -5,9 +5,10 @@ from users_app.models import CustomUser
 
 
 class CosmicEvent(models.Model):
-    mass = models.DecimalField(max_digits=50, decimal_places=4)
+    name = models.CharField(max_length=45)
+    mass = models.DecimalField(max_digits=500, decimal_places=4)
     found = models.BooleanField()
-    year = models.DateTimeField()
-    latitude = models.DecimalField(max_digits=50, decimal_places=6)
-    longitude = models.DecimalField(max_digits=50, decimal_places=6)
+    date = models.DateTimeField()
+    latitude = models.DecimalField(max_digits=500, decimal_places=6)
+    longitude = models.DecimalField(max_digits=500, decimal_places=6)
     user = models.ForeignKey(CustomUser, null=True, on_delete=models.SET_NULL)
