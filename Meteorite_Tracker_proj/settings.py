@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 
+    'rest_framework',
+
+
     'users_app',
     'cosmic_event_app',
 ]

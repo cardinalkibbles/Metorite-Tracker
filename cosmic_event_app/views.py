@@ -9,6 +9,9 @@ from .models import CustomUser, CosmicEvent
 def index(request):
     return render(request, 'cosmic_event/index.html')
 
+def map(request):
+    return render(request, 'cosmic_event/map.html')
+
 
 def create_event(request):
     if request.method == 'GET':
@@ -26,3 +29,5 @@ def create_event(request):
             name=name, mass=mass, found=found, date=date,
             latitude=latitude, longitude=longitude, user=user)
         return redirect(reverse('users_app:profile'))
+
+

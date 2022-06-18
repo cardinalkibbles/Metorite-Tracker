@@ -6,14 +6,21 @@
         <label for="name" class="form-label">Name</label>
         <input type="text class" class="form-control" name="name" id="name" />
         <label for="mass" class="form-label">Enter the Mass using (g)</label>
-        <input type="number" class="form-label" name="mass" id="mass" />
+        <input type="number" class="form-control" name="mass" id="mass" />
+        <!-- <br> -->
         <label for="date" class="form-label">date</label>
-        <input type="datetime" class="form-control" name="date" id="date" />
-        
-        <input type="checkbox" name="found" id="found" value="True" />
+        <input type="date" class="form-control" name="date" id="date" />
+
+        <input
+          type="checkbox"
+          class="form-check-input"
+          name="found"
+          id="found"
+          value="True"
+        />
         <label for="found" class="form-label">Found</label>
-        <br>
-        <br>
+        <br />
+        <br />
         <label for="latitude" class="form-label">Latitude</label>
         <input
           type="number"
@@ -35,7 +42,7 @@
           id="longitude"
         />
         {%csrf_token%}
-        <input type="submit" value="Submit" />
+        <input type="submit" class="btn btn-secondary" value="Submit" />
       </form>
     </div>
   </div>
