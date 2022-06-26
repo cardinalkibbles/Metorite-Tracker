@@ -1,16 +1,22 @@
-{% extends 'base.html' %}{% block content %}
+{% extends 'layout/base.html' %}{% block content %}
 <div class="container">
-  <div class="row col-12">
-    <div class="card col-4 offset-4">hello register
+  <div class="d-flex row col-12">
+    <div class="card col-4 offset-4 text-center text-dark">
+      <h1>hello register</h1>
 
       <form action="{% url 'users_app:register' %}" method="POST">
         <label for="username">Username</label>
-        <input type="text" name="username" id="username" />
-        
+        <input type="text" name="username" id="username" class="form-control" />
+
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="form-control"
+        />
         {%csrf_token%}
-        <input type="submit" value="Register" />
+        <input type="submit" value="Register" class="btn btn-secondary" />
       </form>
     </div>
   </div>

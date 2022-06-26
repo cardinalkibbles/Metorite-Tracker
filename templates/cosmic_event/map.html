@@ -1,5 +1,8 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'layout/base.html' %} {% load static %} {% block content %}
 <div id="map">
   <script src="{% static 'js/leaflet.js' %}"></script>
+  <script src="{% static 'js/map_data_load.js' %}"></script>
+  {% csrf_token %}
+
 </div>
 {% endblock content %}

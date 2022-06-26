@@ -5,5 +5,5 @@ from cosmic_event_app.models import CosmicEvent
 class CosmicEventSerializer(serializers.ModelSerializer):
     class Meta:
         model = CosmicEvent
-        fields = ['name', 'mass', 'found', 'date',
+        fields = ['id', 'name', 'mass', 'found', 'date',
                   'latitude', 'longitude', 'user']

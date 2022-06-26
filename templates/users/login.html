@@ -1,4 +1,4 @@
-{% extends 'base.html' %}{% block content %}
+{% extends 'layout/base.html' %}{% block content %}
 <div class="container">
   <div class="d-flex row col-12">
     <div class="card col-4 offset-4 text-center text-dark">
@@ -15,7 +15,7 @@
           class="form-control"
         />
         {%csrf_token%}
-        <input type="submit" value="submit" class="btn btn-secondary" />
+        <input type="submit" value="Log In" class="btn btn-secondary" />
       </form>
     </div>
   </div>

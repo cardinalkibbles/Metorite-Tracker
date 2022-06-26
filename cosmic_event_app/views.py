@@ -43,39 +43,38 @@ def create_event(request):
 
 
 @api_view(['GET', 'POST'])
-def event_retrieve(request):
+def event_retrieve(request, format=None):
     if request.method == 'GET':
-        CosmicEvents = CosmicEvent.objects.all()
-        serializer = CosmicEventSerializer(CosmicEvents, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        cosmic_events = CosmicEvent.objects.all()
+        serializer = CosmicEventSerializer(cosmic_events, many=True)
+        return Response(serializer.data)
 
     elif request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = CosmicEventSerializer(data=data)
+        serializer = CosmicEventSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def event_detail(request, pk):
+def event_detail(request, pk, format=None):
     try:
-        CosmicEvents = CosmicEvent.objects.get(pk=pk)
+        cosmic_event = CosmicEvent.objects.get(pk=pk)
     except CosmicEvent.DoesNotExist:
-        return HttpResponse(status=404)
+        return Response(status=status.HTTP_404_NOT_FOUND, data= {"message": f"Could not find the cosmic event object with object id of {pk}"})
+
     if request.method == 'GET':
-        serializer = CosmicEventSerializer(CosmicEvent)
-        return JsonResponse(serializer.data)
+        serializer = CosmicEventSerializer(cosmic_event)
+        return Response(serializer.data)
 
     elif request.method == 'PUT':
-        data = JSONParser().parse(request)
-        serializer = CosmicEventSerializer(CosmicEvent, data=data)
+        serializer = CosmicEventSerializer(cosmic_event, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse(serializer.data)
-        return JsonResponse(serializer.errors, status=400)
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'DELETE':
-        CosmicEvent.delete()
-        return HttpResponse(status=204)
+        cosmic_event.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
