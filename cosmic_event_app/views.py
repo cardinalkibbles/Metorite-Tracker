@@ -62,7 +62,7 @@ def event_detail(request, pk, format=None):
     try:
         cosmic_event = CosmicEvent.objects.get(pk=pk)
     except CosmicEvent.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND, data= {"message": f"Could not find the cosmic event object with object id of {pk}"})
+        return Response(status=status.HTTP_404_NOT_FOUND, data={"message": f"Could not find the cosmic event object with object id of {pk}"})
 
     if request.method == 'GET':
         serializer = CosmicEventSerializer(cosmic_event)
