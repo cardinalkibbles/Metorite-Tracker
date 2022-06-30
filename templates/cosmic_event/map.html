@@ -3,15 +3,15 @@
   <script src="{% static 'js/leaflet.js' %}"></script>
   <script src="{% static 'js/map_data_load.js' %}"></script>
   {% csrf_token %}
-
 </div>
-<template><h1>
-
-
-
-
-
-
-
-</h1></template>
+<template id="popup-content">
+  <div class="data">
+    <div class="popup-name"></div>
+    <div class="popup-mass"></div>
+    <div class="popup-found"></div>
+    <div class="popup-date"></div>
+    <div class="popup-latitude"></div>
+    <div class="popup-longitude"></div>
+  </div>
+</template>
 {% endblock content %}

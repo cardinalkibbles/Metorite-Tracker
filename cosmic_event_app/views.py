@@ -1,4 +1,5 @@
 from email import message
+from pickle import FALSE
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from rest_framework.decorators import api_view
@@ -8,6 +9,7 @@ from cosmic_event_app.models import CosmicEvent
 from cosmic_event_app.serializers import CosmicEventSerializer
 from django.http import HttpResponse, JsonResponse
 from rest_framework.parsers import JSONParser
+from decimal import Decimal
 
 
 from .models import CustomUser, CosmicEvent
@@ -31,10 +33,10 @@ def create_event(request):
         form = request.POST
         name = form.get('name')
         mass = form.get('mass')
-        found = form.get('found')
+        found = form.get('found', False)
         date = form.get('date')
-        latitude = form.get('latitude')
-        longitude = form.get('longitude')
+        latitude = Decimal(form.get('latitude'))
+        longitude = Decimal(form.get('longitude'))
         user = request.user
         meteorite = CosmicEvent.objects.create(
             name=name, mass=mass, found=found, date=date,

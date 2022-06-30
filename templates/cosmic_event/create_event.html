@@ -21,25 +21,39 @@
         <label for="found" class="form-label">Found</label>
         <br />
         <br />
-        <label for="latitude" class="form-label">Latitude</label>
+        <label for="latitude" class="form-label"
+          >Latitude
+          <small class="form-text text-muted">(Max 6 decimal places)</small>
+        </label>
+
         <input
           type="number"
           class="form-control"
           name="latitude"
           id="latitude"
+          step="0.000001"
         />
         <label
           for="longitude"
           class="form-label"
           name="longitude"
           id="longitude"
-          >Longitude</label
-        >
+          >Longitude
+          <small
+            class="form-text text-muted"
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+            title="Max 6 decimal places"
+            >?</small
+          >
+        </label>
+
         <input
           type="number"
           class="form-control"
           name="longitude"
           id="longitude"
+          step="0.000001"
         />
         {%csrf_token%}
         <input type="submit" class="btn btn-secondary" value="Submit" />

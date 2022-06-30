@@ -8,7 +8,7 @@ class CosmicEvent(models.Model):
     name = models.CharField(max_length=45)
     mass = models.DecimalField(max_digits=500, decimal_places=4)
     found = models.BooleanField()
-    date = models.DateTimeField()
+    date = models.DateField()
     latitude = models.DecimalField(max_digits=500, decimal_places=6)
     longitude = models.DecimalField(max_digits=500, decimal_places=6)
     user = models.ForeignKey(CustomUser, null=True, on_delete=models.SET_NULL)
