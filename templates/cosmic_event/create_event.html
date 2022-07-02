@@ -1,16 +1,34 @@
 {% extends 'layout/base.html' %}{% block content %}
 <div class="container">
-  <div class="row col-12">
-    <div class="card col-6 offset-2">
+  <div class="d-flex row col-12">
+    <div class="card align-content-center">
       <form action="{% url 'cosmic_event_app:create' %}" method="POST">
         <label for="name" class="form-label">Name</label>
         <input type="text class" class="form-control" name="name" id="name" />
-        <label for="mass" class="form-label">Enter the Mass using (g)</label>
+        <label for="mass" class="form-label"
+          >Mass
+          <small
+            class="form-text text-muted"
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+            title="Units are in grams"
+            >*</small
+          ></label
+        >
         <input type="number" class="form-control" name="mass" id="mass" />
         <!-- <br> -->
-        <label for="date" class="form-label">date</label>
+        <label for="date" class="form-label"
+          >Date
+          <small
+            class="form-text text-muted"
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+            title="When was the meteorite seen?"
+            >*</small
+          >
+        </label>
         <input type="date" class="form-control" name="date" id="date" />
-
+        <br />
         <input
           type="checkbox"
           class="form-check-input"
@@ -18,12 +36,28 @@
           id="found"
           value="True"
         />
-        <label for="found" class="form-label">Found</label>
+        <label for="found" class="form-label"
+          >Found
+          <small
+            class="form-text text-muted"
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+            title="Did it land?"
+            >*</small
+          ></label
+        >
         <br />
-        <br />
+        <br>
+
         <label for="latitude" class="form-label"
           >Latitude
-          <small class="form-text text-muted">(Max 6 decimal places)</small>
+          <small
+            class="form-text text-muted"
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+            title="Maximum of 6 decimal places"
+            >*</small
+          >
         </label>
 
         <input
@@ -43,8 +77,8 @@
             class="form-text text-muted"
             data-bs-toggle="tooltip"
             data-bs-placement="right"
-            title="Max 6 decimal places"
-            >?</small
+            title="Maximum of 6 decimal places"
+            >*</small
           >
         </label>
 

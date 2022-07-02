@@ -14,18 +14,18 @@ class Command(BaseCommand):
 
         for data in nasa_data:
 
-            if data.get("year") == None or not data.get("reclat") or not data.get("reclong"):
+            if not data.get("year") or not data.get("reclat") or not data.get("reclong"):
                 pass
 
                 # found = data.get()
 
             else:
-                date = timezone.datetime.strptime(data.get("year"), "%Y-%m-%d")
+                date = timezone.datetime.strptime(str(data.get("year")), "%Y")
                 date = timezone.make_aware(date)
 
                 CosmicEvent.objects.create(
                     name=data.get("name", "Unknown"),
-                    mass=data.get("mass", 0),
+                    mass=data.get("mass", 0) or 0,
                     found=True if data.get("fall") == "Fell" else False,
                     date=date,
                     latitude=data.get("reclat"),
