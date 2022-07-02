@@ -45,9 +45,6 @@ axios({
     "Content-Type": "application/json",
     "X-CRFToken": token,
   },
-  // params: {
-
-  // },
   xsrfHeaderName: "X-CRFToken",
   method: "GET",
   url: "/event_retrieve",
