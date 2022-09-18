@@ -1,8 +1,6 @@
 from django.db import models
 from users_app.models import CustomUser
 
-# Create your models here.
-
 
 class CosmicEvent(models.Model):
     name = models.CharField(max_length=45)

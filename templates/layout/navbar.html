@@ -23,7 +23,6 @@
         <li class="nav-item">
           <a href="{% url 'cosmic_event_app:create' %} " class="nav-link">Add a meteorite</a>
         </li>
-
         {% if request.user.is_authenticated %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'users_app:profile' %}">Profile</a>

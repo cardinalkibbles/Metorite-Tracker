@@ -1,15 +1,13 @@
-// Lat first then longitude
 const token = document.getElementsByName("csrfmiddlewaretoken")[0];
-
 var logVar = "";
 var latVar = "";
 var meteorIcon = L.icon({
   iconUrl: meteor,
-
   iconSize: [38, 95], // size of the icon
   iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
   popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
 });
+
 
 function templateLoad(data) {
   let popupContent = document.querySelector("#popup-content");
@@ -60,5 +58,3 @@ axios({
     addMarker(data);
   }
 });
-
-// get year, month, day

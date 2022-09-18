@@ -10,25 +10,19 @@ from cosmic_event_app.serializers import CosmicEventSerializer
 from django.http import HttpResponse, JsonResponse
 from rest_framework.parsers import JSONParser
 from decimal import Decimal
-
-
 from .models import CustomUser, CosmicEvent
-
-
-# Create your views here.
 
 
 def index(request):
     return render(request, 'cosmic_event/index.html')
 
-
 def map(request):
     return render(request, 'cosmic_event/map.html')
-
 
 def create_event(request):
     if request.method == 'GET':
         return render(request, 'cosmic_event/create_event.html')
+    
     elif request.method == 'POST':
         form = request.POST
         name = form.get('name')
@@ -42,7 +36,6 @@ def create_event(request):
             name=name, mass=mass, found=found, date=date,
             latitude=latitude, longitude=longitude, user=user)
         return redirect(reverse('users_app:profile'))
-
 
 @api_view(['GET', 'POST'])
 def event_retrieve(request, format=None):
@@ -58,11 +51,11 @@ def event_retrieve(request, format=None):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
 @api_view(['GET', 'PUT', 'DELETE'])
 def event_detail(request, pk, format=None):
     try:
         cosmic_event = CosmicEvent.objects.get(pk=pk)
+    
     except CosmicEvent.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND, data={"message": f"Could not find the cosmic event object with object id of {pk}"})
 

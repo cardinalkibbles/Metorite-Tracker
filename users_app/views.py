@@ -1,14 +1,10 @@
-
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.auth import (
     authenticate, login as django_login, logout as django_logout)
 from django.contrib import messages
-
 from .models import CustomUser
 from django.contrib.auth.decorators import login_required
-
-# Create your views here.
 
 
 def register(request):
@@ -24,7 +20,6 @@ def register(request):
         )
 
         return render(request, 'users/profile.html')
-
 
 def login(request):
     if request.method == 'GET':
@@ -44,11 +39,9 @@ def login(request):
                 request, 'Incorrect username and/or password. Please try again.')
             return render(request, 'users/login.html')
 
-
 @login_required
 def profile(request):
     return render(request, 'users/profile.html')
-
 
 def logout(request):
     django_logout(request)

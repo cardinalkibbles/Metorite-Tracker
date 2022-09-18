@@ -1,7 +1,6 @@
 # ![alt text](https://github.com/CardinalKibbles/Metorite-Tracker/blob/main/static/images/favicon.ico?raw=true) Metorite-Tracker ![alt text](https://github.com/CardinalKibbles/Metorite-Tracker/blob/main/static/images/favicon.ico?raw=true)
 
 ## Goals
-
 - Track and show the location of meteorites from the past
 - Allow users to post coordinates of new meteorites
 - Show location of all metorites on a map
@@ -11,9 +10,7 @@
 <br/>
 
 ## Models
-
 - cosmic_events
-
   - mass (decimal field, decimal place of 2 grams)
   - fall (boolean field, True = meteorite was found, False = meteorite is known to have fallen but never found)
   - year (integer field, year)  date time field possibly 
@@ -22,10 +19,8 @@
   - User (Foreign key to CustomUser)
 
 - CustomUser
-  
   - Inherit from AbstractUser 
   - default User fields
-
 <br/>
 <br/>
 
@@ -39,11 +34,8 @@
 "As a user I want to be able to click on a pin and view more info via a small pop-up window on the same screen."
 <br/>
 ## Minimum viable product
-
 My minimum viable product proposal is to have a user model able to create new pins. The user will be able to register and login to an account. The user will be able to post a pin to the map and view it on the home screen.
-
 <br/>
-
 ## Schedule
 Week 1 = users_app: models, views(register, login, profile), make pin
 <br/>

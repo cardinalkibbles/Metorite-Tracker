@@ -6,18 +6,13 @@ import json
 
 class Command(BaseCommand):
     CosmicEvent.objects.all().delete()
-
     def handle(self, *args, **options):
         with open('./cosmic_event_app/management/commands/meteorites.json', encoding='utf8') as json_file:
-            nasa_data = json.load(json_file)
-        # nasa_data = json.dumps(nasa_data)
-
+            nasa_data = json.load(json_file) 
+        
         for data in nasa_data:
-
             if not data.get("year") or not data.get("reclat") or not data.get("reclong"):
                 pass
-
-                # found = data.get()
 
             else:
                 date = timezone.datetime.strptime(str(data.get("year")), "%Y")
